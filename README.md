@@ -1,0 +1,11 @@
+# Module 17 Supervised Machine Learning
+* Code assignments located at **module17/challenge/Starter_Code**
+
+## Ensemble learning
+For the ensemble learning assignment, the data was first cleaned and split into separate training and testing sets. Due to an imbalance in the amount of data in our classes I used the Random Oversampler class to even out the dataset. Once I was satisfied with amount of data I used the BalancedRandomForestClassifier class to train and test the data, resulting in a accuracy score of 0.672. Our precision for the minority class (high risk loan) was 0.71 and our recall was 0.34 so in the end I don't think this is a good model to use since we would risk losing more true positives. The next model I tried was the EasyEnsembleClassifier class to train the data. It faired better of the two models with an accuracy of 0.929 and a precision of 0.14 and recall of 0.89. In this case since we have a higher recall we might have more false positives but it might be a better trade off between the two models. 
+
+## Resampling
+Next up I tried to oversampling techniques, Random Oversampling and SMOTE. Running the Random Oversampling technique resulted in poor results (0.565 accuracy rate with 0.01 precision and 0.55 recall) nor did the SMOTE tests result in substantially better numbers either (0.589 accuracy rate with 0.01 precision and 0.57 recall) so I would discourage either on its own. Next up was to try Undersampling but it fared much worse (0.527 accuracy rate with 0.01 precision and 0.15 recall). Finally, the last thing to try was to combine the two approaches (Oversampling with Undersampling) but I'm afraid it only performed slightly better than our first go-round with Oversampling (0.593 accuracy with 0.01 precision and 0.68 recall).
+
+## Conclusion
+After testing out the merits of Ensemble Learning/Resampling for our supervised machine learning technique I would recommend to use Random Oversampling with the EasyEnsembleClassifier model. Though the precision was low we would still most likely catch all cases of the high risk lenders and can manually intervene to weed out issues with customers who were not high risk.  
